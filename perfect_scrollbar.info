@@ -1,0 +1,4 @@
+name = Perfect Scrollbar
+description = Implemented Perfect Scrollbar in Drupal
+core = 7.x
+configure = 'admin/config/development/perfect_scrollbar'
