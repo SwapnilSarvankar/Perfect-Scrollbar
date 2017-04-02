@@ -55,7 +55,7 @@ class SettingsForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => t('Custom scrollbar settings for every individual scroll in the site.'),
       '#default_value' => $config->get('perfect_scrollbar_settings'),
-      '#description' => t('Follow pattern for setting custom attributes for a scrollbar. E.g. class:container|height:400|width:300'),
+      '#description' => t('Follow pattern for setting custom attributes for a scrollbar. E.g. {class:perfect_scroll|height:200|width:300},{id:perfect_scroll|height:200|width:300}'),
     );
 
     return parent::buildForm($form, $form_state);
