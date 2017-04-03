@@ -55,9 +55,8 @@ function perfect_scrollbar_permission() {
  */
 function perfect_scrollbar_init() {
   if(variable_get('perfect_scrollbar')) {
-    drupal_add_js(drupal_get_path('module', 'perfect_scrollbar') .'/js/perfect-scrollbar.min.js', 'file');
+    drupal_add_library('perfect_scrollbar', 'perfect_scrollbar');
     drupal_add_js(drupal_get_path('module', 'perfect_scrollbar') .'/js/add_perfect_scrollbar.js', 'file');
-    drupal_add_css(drupal_get_path('module', 'perfect_scrollbar') .'/css/perfect-scrollbar.min.css');
 
     //Get scrollbar settings
     _set_perfect_scrollbar_settings();
