@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_install
+ */
+function perfect_scrollbar_install() {
+  variable_set('perfect_scrollbar_version', PERFECT_SCROLLBAR_DEFAULT_VERSION);
+  variable_set('perfect_scrollbar_compression_type', '');
+  variable_set('perfect_scrollbar_cdn', '1');
+}
