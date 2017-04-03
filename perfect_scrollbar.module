@@ -64,6 +64,45 @@ function perfect_scrollbar_init() {
   }
 }
 
+/**
+ * Implements hook_library().
+ */
+function perfect_scrollbar_library() {
+  $libraries = array();
+  $library_path = libraries_get_path('perfect_scrollbar');
+  $version = variable_get('perfect_scrollbar_version', PERFECT_SCROLLBAR_DEFAULT_VERSION);
+  $compression = variable_get('perfect_scrollbar_compression_type', 'min');
+  $cdn = (TRUE == variable_get('perfect_scrollbar_cdn', '0'));
+
+  // Get extension
+  $js_extension = (FALSE === empty($compression)) ? $compression . '.js' : 'js';
+  $css_extension = (FALSE === empty($compression)) ? $compression . '.css' : 'css';
+  $path = (FALSE == $cdn) ? $library_path : PERFECT_SCROLLBAR_CDN_URL . '/' . $version;
+
+  $js = array(
+    $path . '/js/perfect-scrollbar.jquery.' . $js_extension => array(
+      'external' => $cdn,
+    'scope' => 'footer',
+    )
+  );
+  $css = array(
+    $path . '/css/perfect-scrollbar.' . $css_extension => array(
+      'external' => $cdn,
+    'type' => 'file',
+      'media' => 'screen',
+    )
+  );
+
+  $libraries['perfect_scrollbar'] = array(
+    'title' => 'anythingslider',
+    'version' => $version,
+    'website' => 'https://noraesae.github.io/perfect-scrollbar',
+    'js' => $js,
+    'css' => $css,
+  );
+  return $libraries;
+}
+
 /*
  * Perfoms check with perfect scrollbar settings and sets up JS by passing required values.
  */
