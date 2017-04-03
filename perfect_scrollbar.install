@@ -21,3 +21,12 @@ function perfect_scrollbar_uninstall() {
     variable_del($variable);
   }
 }
+
+/**
+ * Set initial variables.
+ */
+function angularjs_update_7000() {
+  variable_set('perfect_scrollbar_version', PERFECT_SCROLLBAR_DEFAULT_VERSION);
+  variable_set('perfect_scrollbar_compression_type', '');
+  variable_set('perfect_scrollbar_cdn', '1');
+}
